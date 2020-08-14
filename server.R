@@ -3,7 +3,7 @@ shinyServer(function(input, output, session) {
   prize_door <- reactiveVal(sample(3, 1))
   choice_number <- reactiveVal(0)
   door_choice <- reactiveValues(first = NULL, second = NULL)
-  score <- reactiveValues(won = 0, lost = 0)
+  score <- reactiveValues(won = 0, lost = 0, total_won = 0, total_lost = 0)
   
   open_door <- reactive({
     req(door_choice$first)
@@ -27,9 +27,11 @@ shinyServer(function(input, output, session) {
     if(door_choice$second == prize_door()) {
       shinyalert(text = "You Won!", timer = 1000, type = "success", showConfirmButton = F)
       score$won <- score$won + 1
+      score$total_won <- score$total_won + 1
     } else {
       shinyalert(text = "You Lost!", timer = 1000, type = "error", showConfirmButton = F)
       score$lost <- score$lost + 1
+      score$total_lost <- score$total_lost + 1
     }
   })
   
@@ -54,24 +56,34 @@ shinyServer(function(input, output, session) {
     c("won" = score$won, "lost" = score$lost)
   })
   
-  output$never_switch <- renderValueBox({
-    valueBox("33.3%", "Expected Win %: Never Switch Strategy", color = "red")
-  })
+  #output$never_switch <- renderValueBox({
+  #  valueBox("33.3%", "Expected Win %: Never Switch Strategy", color = "red")
+  #})
   
-  output$always_switch <- renderValueBox({
-    valueBox("66.7%", "Expected Win %: Always Switch Strategy", color = "green")
-  })
+  #output$always_switch <- renderValueBox({
+  #  valueBox("66.7%", "Expected Win %: Always Switch Strategy", color = "green")
+  #})
   
   output$games_played <- renderValueBox({
     # req((score$won + score$lost) > 0)
-    valueBox(sum(score$won, score$lost), "Games Played", color = "blue")
+    valueBox(sum(score$won, score$lost), "Your Games Played", color = "blue")
   })
   
   output$actual_score <- renderValueBox({
     # req((score$won + score$lost) > 0)
     cs <- round(score$won * 100 / (score$won + score$lost), 1)
     current_score <- ifelse(is.nan(cs), 0, cs)
-    valueBox(paste0(current_score, "%"), "Player Win %", color = "blue")
+    valueBox(paste0(current_score, "%"), "Your Win %", color = "red")
   })
   
+  output$total_games_played <- renderValueBox({
+    valueBox(sum(score$total_won, score$total_lost), "Total Games Played Today", color = "green")
+  })
+  
+  output$total_win_pct <- renderValueBox({
+    # req((score$won + score$lost) > 0)
+    cs <- round(score$total_won * 100 / (score$total_won + score$total_lost), 1)
+    current_score <- ifelse(is.nan(cs), 0, cs)
+    valueBox(paste0(current_score, "%"), "Total Win %", color = "purple")
+  })
 })
