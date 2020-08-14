@@ -8,9 +8,9 @@ library(shinyalert)
 doorUI <- function(id, title, width) {
   ns <- NS(id)
   box(
-    img(src = "door.png", height ="100%", width = "100%", id = ns("img_door")),
-    hidden(img(src = "goat.jpg", height = "100%", width = "100%", id = ns("img_donkey"))),
-    hidden(img(src = "car.png", height = "100%", width ="100%", id = ns("img_prize"))),
+    img(src = "door.png", height ="75%", width = "85%", id = ns("img_door")),
+    hidden(img(src = "goat.jpeg", height = "100%", width = "100%", id = ns("img_donkey"))),
+    hidden(img(src = "car.jpg", height = "100%", width ="100%", id = ns("img_prize"))),
     fluidRow(
       column(6, align = "right",
         actionButton(ns("choice_1"), "Choice 1")

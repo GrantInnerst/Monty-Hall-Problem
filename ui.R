@@ -16,9 +16,9 @@ dashboardPage(
       ,column(9,
          fluidRow(
            column(1, align = "left",
-                  actionButton("reset_score", "Reset Score", width = "50%"),
+                  actionButton("reset_score", "Reset Score", width = "100%"),
                   br(), br(),
-                  actionButton("new_game", "New Game", width = "50%"),
+                  actionButton("new_game", "New Game", width = "100%"),
            ),          
            valueBoxOutput("games_played", width = 2),
            valueBoxOutput("actual_score", width = 2), 
