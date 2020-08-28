@@ -13,19 +13,16 @@
 
 </ul>
 
-Is it to your advantage to switch your choice?
+Is it to your advantage to switch your choice? Play the game to find out!!!
 
 <br><br>
-Under the standard game structure, which is described above, it is advantageous to switch your door choice. Specifically, the probability that you would win if you switch is 66.67% and would be 33.34% if you stay with the current choice.
-
-
 
 <h3 id="gameplay"><strong>Gameplay</strong></h3>
 
 <ol type="1">
   <li>Press Reset/New Game to start a new game. 'Reset' resets the score and 'New Game' starts a new game</li><br>
-  <li>There are two buttons under every door. Make first choice using 'Choice 1' button. Then a random door (except your first choice) will be opened.</li><br>
+  <li>There are two buttons under every door. Make your first choice using 'Choice 1' button. Then a random door (except your first choice) will be opened.</li><br>
   <li>Now make your second choice. You can choose to stay with your original door OR chose the other remaining door.</li><br>
   <li>All doors will be opened and score will update accoridingly.</li><br>
-  <li>Try different strategies and see if you can beat 66.7% over many games.</li>
+  
 </ol>

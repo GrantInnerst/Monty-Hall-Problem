@@ -5,6 +5,11 @@ library(dplyr)
 library(shinyjs)
 library(shinyalert)
 
+sidebar <- dashboardSidebar(sidebarMenu(
+  menuItem("Game", tabName = "game"),
+  menuItem("Description", tabName = "description")
+))
+
 doorUI <- function(id, title, width) {
   ns <- NS(id)
   box(

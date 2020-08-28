@@ -1,0 +1,7 @@
+<style>
+#gameplay {
+  text-align: center;
+}
+</style>
+
+Under the standard game structure, which is described above, it is advantageous to switch your door choice. Specifically, the probability that you would win if you switch is 66.67% and would be 33.34% if you stay with the current choice.

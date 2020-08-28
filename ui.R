@@ -1,18 +1,18 @@
 dashboardPage(
   dashboardHeader(title = "SIAM Monty Hall Game"),
-  dashboardSidebar(disable = TRUE),
+  sidebar,
   dashboardBody(
     useShinyjs(),
     useShinyalert(),
     tags$head(tags$style(HTML("div.box-header {
                                   text-align: center;
                                 }"))),
-    fluidRow(
-      #column(3,
+    tabItems(
+      
+    tabItem(tabName = "game", fluidRow(
         box(includeHTML("www/info.txt"),
           title = HTML("<h3><strong>Game Background</strong></h3>"), width = "100%"
         )
-      #),
       ,column(9,
          fluidRow(
            column(1, align = "left",
@@ -31,6 +31,13 @@ dashboardPage(
           doorUI("door_3", width = 4, title = "Door 3")
         ),
       )
+    )
+    ), 
+    tabItem(tabName = "description", 
+            box(includeHTML("www/description.txt"),
+                title = HTML("<h3><strong>Strategy Description</strong></h3>"), width = "100%"
+            )
+            )
     )
   )
 )
