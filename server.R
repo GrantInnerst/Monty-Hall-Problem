@@ -76,14 +76,14 @@ shinyServer(function(input, output, session) {
     valueBox(paste0(current_score, "%"), "Your Win %", color = "red")
   })
   
-  output$total_games_played <- renderValueBox({
-    valueBox(sum(score$total_won, score$total_lost), "Total Games Played Today", color = "green")
-  })
-  
-  output$total_win_pct <- renderValueBox({
-    # req((score$won + score$lost) > 0)
-    cs <- round(score$total_won * 100 / (score$total_won + score$total_lost), 1)
-    current_score <- ifelse(is.nan(cs), 0, cs)
-    valueBox(paste0(current_score, "%"), "Total Win %", color = "purple")
-  })
+  # output$total_games_played <- renderValueBox({
+  #   valueBox(sum(score$total_won, score$total_lost), "Total Games Played Today", color = "green")
+  # })
+  # 
+  # output$total_win_pct <- renderValueBox({
+  #   # req((score$won + score$lost) > 0)
+  #   cs <- round(score$total_won * 100 / (score$total_won + score$total_lost), 1)
+  #   current_score <- ifelse(is.nan(cs), 0, cs)
+  #   valueBox(paste0(current_score, "%"), "Total Win %", color = "purple")
+  # })
 })

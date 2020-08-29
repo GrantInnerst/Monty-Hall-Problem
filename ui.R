@@ -21,9 +21,9 @@ dashboardPage(
                   actionButton("new_game", "New Game", width = "100%"),
            ),          
            valueBoxOutput("games_played", width = 2),
-           valueBoxOutput("actual_score", width = 2), 
-           valueBoxOutput("total_games_played", width = 2),
-           valueBoxOutput("total_win_pct", width = 2)
+           valueBoxOutput("actual_score", width = 2) 
+           # valueBoxOutput("total_games_played", width = 2),
+           # valueBoxOutput("total_win_pct", width = 2)
          ),
         fluidRow(
           doorUI("door_1", width = 4, title = "Door 1"),
@@ -38,6 +38,7 @@ dashboardPage(
                 title = HTML("<h3><strong>Strategy Description</strong></h3>"), width = "100%"
             )
             )
-    )
+    ),
+    box("Aknowledgement: Originally created by Shrinidhee Shevade, located here: https://github.com/shree-shevade/Monty-Hall-Problem. Modified by Grant Innerst")
   )
 )
